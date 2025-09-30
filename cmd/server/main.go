@@ -45,10 +45,13 @@ func main() {
 	foodService := services.NewFoodService(queries)
 	foodHandler := handlers.NewFoodHandler(foodService)
 
+	authService := services.NewAuthService(queries)
+	authHandler := handlers.NewAuthHandler(authService)
+
 	r.Get("/foods", foodHandler.GetFoodList)
 	r.Post("/foods", foodHandler.InsertFruit)
 	r.Get("/hello", foodHandler.GetHelloText)
-
+	r.Post("/users", authHandler.CreateUser)
 	http.ListenAndServe(":8080", r)
 
 }

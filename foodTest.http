@@ -13,3 +13,16 @@ Content-Type: application/json
 }
 
 ###
+
+
+### CREATE USER
+
+POST localhost:8080/users
+Content-Type: application/json
+
+{
+  "username": "m.gzegozevskis@gmail.com",
+  "password": "LabasAsKrabas"
+}
+
+###
