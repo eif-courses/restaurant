@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  migrate:
+    desc: "Create new migration"
+    cmds:
+      - goose -s -dir ./migrations create {{.CLI_ARGS}} sql
+
+  run:
+    desc: "Start Live air server!!!"
+    cmds:
+      - air
+    silent: false
+  gen:
+    desc: "Generate from sqlc."
+    cmds:
+      - echo "Generating SQLC repository files..."
+      - sqlc generate
+    silent: false
+
+  build:
+    desc: "Up migrations, gen repo, start air live server for watch"
+    cmds:
+      - echo "Up migrations, gen repo, start air live server for watch..."
+      - goose up
+      - sqlc generate
+      - air
+    silent: false
+

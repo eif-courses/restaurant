@@ -1,0 +1,15 @@
+### GET request to example server
+GET http://localhost:8080/foods
+###
+
+### POST Food
+
+POST localhost:8080/foods
+Content-Type: application/json
+
+{
+  "name": "Meat",
+  "price": 12.30
+}
+
+###
